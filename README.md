@@ -66,15 +66,3 @@ Ouvrez et exécutez le notebook `Optimization Model.ipynb` pour explorer les str
 
 Ouvrez le notebook `main.ipynb` pour exécuter toutes les étapes du projet, de la préparation des données à l'évaluation des résultats.
 
-
-## Auteurs
-
-- **Chaimae Elfakir**
-  - Département de Mathématiques et Informatique, ENSET Mohammedia
-  - Email : [chaimae.elfakir-etu@etu.univh2c.ma](mailto:chaimae.elfakir-etu@etu.univh2c.ma)
-
-- **Assia Ait Jeddi**
-  - Département de Mathématiques et Informatique, ENSET Mohammedia
-  - Email : [assia.aitjeddi-etu@univh2c.ma](mailto:assia.aitjeddi-etu@univh2c.ma)
-
-
