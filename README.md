@@ -10,23 +10,28 @@ Ce projet utilise des techniques d'**apprentissage par renforcement (RL)** et d'
 
 ## Structure du Projet
 
-Le projet contient les éléments suivants :  
+Le projet contient les éléments suivants :
 
-1. **`FD003.txt`** : Jeu de données utilisé pour l'entraînement et l'évaluation.  
-2. **Classe `MaintenanceAgent.java`** : Implémente l'algorithme d'apprentissage par renforcement.  
-3. **Classe `RULPredictor.py`** : Contient le modèle prédictif basé sur les réseaux de neurones.  
-4. **`config.yaml`** : Fichier de configuration pour les hyperparamètres du modèle et les paramètres d'entraînement.
+1. **`data`** : Répertoire contenant le dataset utilisé qui est NASA C-MAPSS pour l'entraînement et l'évaluation.
+2. **`EDA.ipynb`** : Notebook pour l'analyse exploratoire des données (EDA), permettant de visualiser et de mieux comprendre les caractéristiques des datasets.
+3. **`Optimization Model.ipynb`** : Notebook implémentant le modèle d'optimisation basé sur l'apprentissage par renforcement.
+4. **`Prediction Model.py`** : Script Python pour le modèle de prédiction de la durée de vie restante (RUL).
+5. **`main.ipynb`** : Notebook principal intégrant les différentes étapes du pipeline (prétraitement, entraînement, évaluation).
+6. **`utils.py`** : Script Python contenant des fonctions utilitaires utilisées dans tout le projet (prétraitement, visualisation, etc.).
+
+## Datasets
+
+- **NASA C-MAPSS Dataset** :
+  - Données simulées "run-to-failure" pour les moteurs d'avion.
+  - Conçu pour les tâches de prédiction de la RUL.
 
 ## Prérequis
 
-Avant d'exécuter ce projet, assurez-vous d'avoir les éléments suivants installés :  
+Avant d'exécuter ce projet, vous devez avoir les éléments suivants installés :
 
-- **Python 3.10** avec les bibliothèques :  
-  - TensorFlow / PyTorch  
-  - Pandas  
-  - NumPy  
-  - Matplotlib  
-- **Java 21** pour la simulation des agents de maintenance.
+- **Python 3.8+**
+- **Bibliothèques Python** : NumPy, Pandas, Matplotlib, Scikit-learn, TensorFlow ou PyTorch
+  
 
 ## Étapes pour exécuter le projet
 
@@ -39,41 +44,37 @@ git clone https://github.com/assiaaitjeddi/maintenance-predictive.git
 
 ### 2. Préparer le jeu de données
 
-Assurez-vous que le fichier `FD003.txt` est placé dans le répertoire de travail :  
-```plaintext
-cycle,setting1,setting2,setting3,sensor1,sensor2,...,RUL
-1,0.5,0.7,100,518.67,641.82,...,128
-2,0.6,0.7,100,518.67,641.82,...,127
-...
-```
+Assurez-vous que le dataset est placé dans le répertoire `data`.
 
-### 3. Configurer le modèle
 
-Modifiez le fichier `config.yaml` si nécessaire pour ajuster les hyperparamètres :  
-```yaml
-learning_rate: 0.001
-episodes: 500
-batch_size: 32
-...
-```
+### 3. Exécuter l'analyse exploratoire
 
-### 4. Entraîner le modèle RUL
+Ouvrez et exécutez le notebook `EDA.ipynb` pour visualiser les données et comprendre leurs caractéristiques principales.
 
-Lancez l'entraînement du prédicteur RUL en exécutant :  
+### 4. Entraîner le modèle de prédiction
+
+Utilisez le script `Prediction Model.py` pour entraîner et évaluer le modèle RUL :
 ```bash
-python RULPredictor.py
+python Prediction Model.py
 ```
 
-### 5. Exécuter l'agent de maintenance
+### 5. Lancer le modèle d'optimisation
 
-Compilez et exécutez l'agent avec Java :  
-```bash
-javac MaintenanceAgent.java
-java MaintenanceAgent
-```
+Ouvrez et exécutez le notebook `Optimization Model.ipynb` pour explorer les stratégies d'optimisation basées sur le renforcement.
 
-### 6. Visualiser les résultats
+### 6. Exécuter le pipeline complet
 
-Les résultats des prédictions et des stratégies optimisées seront affichés sous forme de graphiques et de logs dans la console. Vous pouvez également visualiser les performances à l'aide de Matplotlib :  
-```bash
-python visualize_results.py
+Ouvrez le notebook `main.ipynb` pour exécuter toutes les étapes du projet, de la préparation des données à l'évaluation des résultats.
+
+
+## Auteurs
+
+- **Chaimae Elfakir**
+  - Département de Mathématiques et Informatique, ENSET Mohammedia
+  - Email : [chaimae.elfakir-etu@etu.univh2c.ma](mailto:chaimae.elfakir-etu@etu.univh2c.ma)
+
+- **Assia Ait Jeddi**
+  - Département de Mathématiques et Informatique, ENSET Mohammedia
+  - Email : [assia.aitjeddi-etu@univh2c.ma](mailto:assia.aitjeddi-etu@univh2c.ma)
+
+
