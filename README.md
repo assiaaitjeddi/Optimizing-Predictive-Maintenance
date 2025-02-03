@@ -1,116 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimizing Predictive Maintenance</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2, h3 {
-            color: #0056b3;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .authors {
-            margin-top: 10px;
-            padding: 10px;
-            background: #f9f9f9;
-            border-left: 4px solid #0056b3;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section img {
-            max-width: 100%;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .keywords {
-            background: #e9ecef;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .limitations {
-            background: #ffe5e5;
-            padding: 10px;
-            border-left: 4px solid #d9534f;
-            border-radius: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Optimizing Predictive Maintenance Strategies</h1>
-        <h2>Using Reinforcement Learning and RUL Estimation</h2>
-        
-        <div class="authors">
-            <p><strong>Chaimae Elfakir</strong><br>
-            Dept. of Mathematics and Computer Science<br>
-            University Hassan II, ENSET Mohammedia<br>
-            Mohammedia, Morocco<br>
-            <a href="mailto:chaimae.elfakir-etu@etu.univh2c.ma">chaimae.elfakir-etu@etu.univh2c.ma</a></p>
-            
-            <p><strong>Assia Ait Jeddi</strong><br>
-            Dept. of Mathematics and Computer Science<br>
-            University Hassan II, ENSET Mohammedia<br>
-            Mohammedia, Morocco<br>
-            <a href="mailto:assia.aitjeddi-etu@univh2c.ma">assia.aitjeddi-etu@univh2c.ma</a></p>
-        </div>
+# Optimisation de la Maintenance Prédictive
 
-        <div class="section">
-            <h2>Keywords</h2>
-            <div class="keywords">
-                Predictive Maintenance, Reinforcement Learning, RUL Estimation, Spatio-Temporal Analysis, Machine Learning
-            </div>
-        </div>
+Ce projet utilise des techniques d'**apprentissage par renforcement (RL)** et d'**estimation de la durée de vie résiduelle (RUL)** pour optimiser les stratégies de maintenance prédictive.
 
-        <div class="section">
-            <h2>Abstract</h2>
-            <p>This project investigates strategies for optimizing predictive maintenance using reinforcement learning techniques and Remaining Useful Life (RUL) estimation. Through the analysis of datasets such as NASA C-MAPSS and MetroPT-3, the study explores advanced methodologies to improve maintenance scheduling and system reliability.</p>
-        </div>
+## Objectifs
 
-        <div class="section">
-            <h2>Datasets</h2>
-            <p><strong>MetroPT-3 Dataset:</strong> Developed for monitoring pneumatic and mechanical systems in trains. Features include:</p>
-            <ul>
-                <li>Detailed sensor measurements (e.g., pressures, temperatures).</li>
-                <li>GPS data for spatio-temporal analysis.</li>
-                <li>Tools for multi-anomaly detection.</li>
-            </ul>
+- Utiliser l'apprentissage par renforcement pour optimiser les calendriers de maintenance.  
+- Prédire la fiabilité des équipements en analysant des données spatio-temporelles.  
+- Réduire les temps d'arrêt et les coûts de maintenance tout en augmentant la durée de vie des systèmes.
 
-            <p><strong>NASA C-MAPSS Dataset:</strong> Simulated "run-to-failure" data for aircraft engines, focusing on RUL prediction.</p>
-        </div>
+## Structure du Projet
 
-        <div class="section">
-            <h2>Results</h2>
-            <p>Short-term predictions using XGBoost showed near-perfect accuracy within 24-hour windows. However, accuracy declined significantly for longer horizons (36-48 hours).</p>
-            <img src="path-to-image" alt="Prediction Results Graph">
-        </div>
+Le projet contient les éléments suivants :  
 
-        <div class="section limitations">
-            <h3>Limitations</h3>
-            <p>The dataset's design strongly favors 24-hour predictions, making it less suitable for long-term forecasts. Simultaneous failures and complex sensor interactions require further analysis for robust real-world applications.</p>
-        </div>
-    </div>
-</body>
-</html>
+1. **`FD003.txt`** : Jeu de données utilisé pour l'entraînement et l'évaluation.  
+2. **Classe `MaintenanceAgent.java`** : Implémente l'algorithme d'apprentissage par renforcement.  
+3. **Classe `RULPredictor.py`** : Contient le modèle prédictif basé sur les réseaux de neurones.  
+4. **`config.yaml`** : Fichier de configuration pour les hyperparamètres du modèle et les paramètres d'entraînement.
+
+## Prérequis
+
+Avant d'exécuter ce projet, assurez-vous d'avoir les éléments suivants installés :  
+
+- **Python 3.10** avec les bibliothèques :  
+  - TensorFlow / PyTorch  
+  - Pandas  
+  - NumPy  
+  - Matplotlib  
+- **Java 21** pour la simulation des agents de maintenance.
+
+## Étapes pour exécuter le projet
+
+### 1. Cloner le projet
+
+Clonez ce dépôt Git sur votre machine locale :  
+```bash  
+git clone https://github.com/assiaaitjeddi/maintenance-predictive.git
+```
+
+### 2. Préparer le jeu de données
+
+Assurez-vous que le fichier `FD003.txt` est placé dans le répertoire de travail :  
+```plaintext
+cycle,setting1,setting2,setting3,sensor1,sensor2,...,RUL
+1,0.5,0.7,100,518.67,641.82,...,128
+2,0.6,0.7,100,518.67,641.82,...,127
+...
+```
+
+### 3. Configurer le modèle
+
+Modifiez le fichier `config.yaml` si nécessaire pour ajuster les hyperparamètres :  
+```yaml
+learning_rate: 0.001
+episodes: 500
+batch_size: 32
+...
+```
+
+### 4. Entraîner le modèle RUL
+
+Lancez l'entraînement du prédicteur RUL en exécutant :  
+```bash
+python RULPredictor.py
+```
+
+### 5. Exécuter l'agent de maintenance
+
+Compilez et exécutez l'agent avec Java :  
+```bash
+javac MaintenanceAgent.java
+java MaintenanceAgent
+```
+
+### 6. Visualiser les résultats
+
+Les résultats des prédictions et des stratégies optimisées seront affichés sous forme de graphiques et de logs dans la console. Vous pouvez également visualiser les performances à l'aide de Matplotlib :  
+```bash
+python visualize_results.py
